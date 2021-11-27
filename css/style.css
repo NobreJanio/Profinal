@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+}
+
+body {
+    font-family: 'Nunito Sans', sans-serif;
+}
+header {
+    background-color: blueviolet;
+    padding: 10px;
+    color: #fff;
+    text-align: center;
+}
+
+main {
+    padding: 30px 50px;
+}
+
+.card {
+    background-color: #fff;
+    border: #ccc;
+    padding: 20px;
+    margin-top: 15px;
+    border-radius: 5px;
+}

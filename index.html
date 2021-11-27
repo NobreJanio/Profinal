@@ -7,15 +7,40 @@
     <title>Projeto javascript</title>
 
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2? display=swap" rel="stylesheet">
 
     <script src="js/script1.js"></script>
 </head>
 <body>
 
-    <div class="card"> 
-        <h1>CURSOS DE FINANÇAS </h1>
+    <header>
+        <h1>Cusos JN Júnior</h1>
+    </header>
 
-        <button onclick="curso.adicionar()">Adicionar</button>
-    </div>
+    <main>
+        <div class="title">
+            <h2>Cursos de Finanças</h2>
+            <span>Selecione seu curso</span>
+        </div>
+
+        <div class="card">
+            <div class="lineInput">
+                <label>Cursos</label>
+                <input type="text" id="cursos" placeholder="Nome do curso"
+            </div>
+
+            <div class="lineInput">
+                <label>Professor</label>
+                <input type="text" id="nomeProf" placeholder="Nome do Professor"
+            </div><br>
+            <button onclick="curso.adicionar()">Adicionar</button>
+            <button onclick="produtos.excluir()">Deletar</button>
+        </div>
+        
+    </main>
+
+    
 </body>
 </html>
