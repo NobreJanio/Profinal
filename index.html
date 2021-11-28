@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2? display=swap" rel="stylesheet">
 
-    <script src="js/script1.js"></script>
+    
 </head>
 <body>
 
@@ -32,11 +32,29 @@
             </div>
 
             <div class="lineInput">
+                <label>Descrição</label>
+                <input type="text" id="nomeDesc" placeholder="Escreva aqui"
+            </div>
+
+            <div class="lineInput">
+                <label>Imagem</label>
+                <input type="text" id="nomeImg" placeholder="Escreva aqui"
+            </div>
+
+            <div class="lineInput">
                 <label>Professor</label>
-                <input type="text" id="nomeProf" placeholder="Nome do Professor"
-            </div><br>
-            <button onclick="curso.adicionar()">Adicionar</button>
-            <button onclick="produtos.excluir()">Deletar</button>
+                <input type="text" id="nomeProf" placeholder="Escreva aqui"
+            </div>
+
+            <div class="lineInput">
+                <label>Acesse</label>
+                <input type="text" id="nomeAces" placeholder="Escreva aqui"
+            </div>
+
+            
+            
+            <button onclick="cursos.salvar()">Salvar</button>
+            <button onclick="cursos.cancelar()">Cancelar</button>
         </div>
 
         <div class="content"></div>
@@ -50,24 +68,13 @@
                 <th>Link</th>
                 <th class="center">Ações</th>
             </thead>
-            <tbody>
-                <tr>
-                    <td class="center">1</td>
-                    <td>Gestão Pessoal e Investimento em Ações</td>
-                    <td>hgkjhkjgjgkhggkkljhkjgbkjnbljbgkjbhkjkhkjhkjhkjhkjhkjhkjh<br>kjhkjhkjhgyhghghghghgyuyguygyguyguygyguygyugyuguy</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="center">
-                        <img src="img/edit.png" alt="">
-                        <img src="img/delete.png" alt="">
-                    </td>
-                </tr>
+            <tbody id="tbody">
+               
             </tbody>
         </table>
         
     </main>
 
-    
+    <script src="js/script1.js"></script>
 </body>
 </html>
