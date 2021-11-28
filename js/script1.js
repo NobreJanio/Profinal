@@ -10,18 +10,12 @@ class Cursos {
     salvar() {
         let cursos = this.lerDados();
        
-        
-        
-
-      
         if(this.validaCampos(cursos)) {
            this.adicionar(cursos);
-          
-            
         }
         
         this.listaTabela();
-        thid
+        this.cancelar();
     }
 
      listaTabela(){
@@ -51,16 +45,19 @@ class Cursos {
 
             let imgEdit = document.createElement('img');
             imgEdit.src = 'img/edit.png';
-            td_acoes.appendChild(imgEdit);
+            
 
             let imgDelete = document.createElement('img')
-            imgDelete.src ='img/delete.png';
-            td_acoes.appendChild(imgDelete)
+            imgDelete.src = 'img/delete.png'
+            imgDelete.setAttribute("onclick", "cursos.deletar("+this.arrayCursos[i].id+")");
+            
 
             let imgEdit1 = document.createElement('img')
             imgEdit1.src = 'img/fina.jpg';
+            
             td_imagem.appendChild(imgEdit1);
-
+            td_acoes.appendChild(imgDelete)
+            td_acoes.appendChild(imgEdit);
        }
     }
 
@@ -84,11 +81,7 @@ class Cursos {
         return cursos
     }
 
-   
-
-   
-
-    validaCampos(cursos) {
+   validaCampos(cursos) {
         let msg = '';
         
        if(cursos.nomeCursos == '') { 
@@ -124,6 +117,19 @@ class Cursos {
 
        
     }
+
+    deletar (id) {
+        let tbody = document.getElementById('tbody');
+
+        for(let i = 0; i < this.arrayCursos.length; i++)
+        if(this.arrayCursos[i].id == id) {
+            this.arrayCursos.splice(i, 1);
+            tbody.deleteRow(i);
+        }
+        
+        console.log(this.arrayCursos)
+    }
+
 
 }
 
