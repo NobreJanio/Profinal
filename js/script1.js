@@ -4,15 +4,21 @@ class Cursos {
 
         this.id = 1;
         this.arrayCursos = []
-        
+        this.editID = null;
        }
     
     salvar() {
         let cursos = this.lerDados();
-       
-        if(this.validaCampos(cursos)) {
-           this.adicionar(cursos);
-        }
+      if(this.validaCampos(cursos))      
+        if(this.editID == null) {
+                this.adicionar(cursos); 
+            } else {
+                this.atualizar(this.editID)
+            }
+      
+         
+           
+        
         
         this.listaTabela();
         this.cancelar();
@@ -45,7 +51,7 @@ class Cursos {
 
             let imgEdit = document.createElement('img');
             imgEdit.src = 'img/edit.png';
-            
+            imgEdit.setAttribute("onclick", "cursos.preparaEdit("+JSON.stringify(this.arrayCursos[i])+")");
 
             let imgDelete = document.createElement('img')
             imgDelete.src = 'img/delete.png'
@@ -64,6 +70,33 @@ class Cursos {
     adicionar(cursos) {
         this.arrayCursos.push(cursos);
         this.id++;
+    }
+
+    atualizar(id, cursos) {
+        for (let i = 0;i < this.arrayCursos.length; i++)
+            if(this.arrayCursos[i].id == id) {
+                    this.arrayCursos[i].nomeCursos = cursos.nomeCursos;
+                    this.arrayCursos[i].nomeCursos = cursos.nomeDes;
+                    this.arrayCursos[i].nomeCursos = cursos.nomeImg;
+                    this.arrayCursos[i].nomeCursos = cursos.nomeProf;
+                    this.arrayCursos[i].nomeCursos = cursos.nomeAces;
+            }
+
+
+    }
+
+    preparaEdit(dados) {
+        this.editID = dados.id;
+
+        document.getElementById('cursos').value = dados.nomeCursos;
+        document.getElementById('cursos').value = dados.nomeDes;
+        document.getElementById('cursos').value = dados.nomeImg;
+        document.getElementById('cursos').value = dados.nomeProf;
+        document.getElementById('cursos').value = dados.nomeAces;
+        
+        document.getElementById('btn1').innerText = 'Atualizar'
+
+
     }
 
     lerDados() {
@@ -115,10 +148,14 @@ class Cursos {
     cancelar() {
         document.getElementByAll('cursos').value = '';
 
+        document.getElementById('btn1').innerText = 'Salvar';
+        this.editID = null
+
        
     }
 
     deletar (id) {
+        //if(confirm('Deseja realmente deletar o curso do ID ' + id))
         let tbody = document.getElementById('tbody');
 
         for(let i = 0; i < this.arrayCursos.length; i++)
@@ -127,7 +164,7 @@ class Cursos {
             tbody.deleteRow(i);
         }
         
-        console.log(this.arrayCursos)
+        
     }
 
 
